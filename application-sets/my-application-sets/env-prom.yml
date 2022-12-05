@@ -4,12 +4,12 @@ metadata:
   name: env-prom-application-set
   namespace: argocd
 spec:
-  generators:
+generators:
   - list:
       elements:
-      - namespace: prod
+      - namespace: qa
       - namespace: staging
-      - namespace: qa    
+      - namespace: prod  
   template:      
     metadata:
       name: '{{namespace}}-app'
@@ -25,7 +25,7 @@ spec:
       
       # Destination cluster and namespace to deploy the application
       destination:
-        cluster: default
+        cluster: https://kubernetes.default.svc
         namespace: '{{namespace}}'
 
       # Sync policy
