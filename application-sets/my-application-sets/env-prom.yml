@@ -6,9 +6,10 @@ metadata:
 spec:
   generators:
   - list:
-     namespace: prod
-     namespace: staging
-     namespace: qa
+      elements:
+        namespace: prod
+        namespace: staging
+        namespace: qa    
   template:      
     metadata:
       name: '{{namespace}}-app'
